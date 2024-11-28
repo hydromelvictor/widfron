@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
+
+import AppTheme from './context/Theme';
+import GlobalStyle from './style';
+
+
+import AdminHome from './component/admin/Home';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AppTheme>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/admin" element={<AdminHome />} ></Route>
+        </Routes>
+      </AppTheme>
+    </Router>
   </React.StrictMode>
 );
 

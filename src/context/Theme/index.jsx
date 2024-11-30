@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 
-export const AppContent = createContext();
+export const AppContext = createContext();
 
 
 export default function AppTheme ({ children }) {
@@ -22,8 +22,8 @@ export default function AppTheme ({ children }) {
     };
 
     return (
-        <AppContent.Provider value={{ theme, toggleTheme, user, setUser }}>
+        <AppContext.Provider value={{ theme, toggleTheme, user, setUser }}>
             {children}
-        </AppContent.Provider>
+        </AppContext.Provider>
     );
 }

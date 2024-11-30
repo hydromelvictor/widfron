@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { useContext } from "react"
-import { AppContent } from "../context/Theme"
+import { AppContext } from "../context/Theme"
 import { Colors } from '../common/Colors';
 
 
@@ -68,20 +68,62 @@ const StyledGlobalStyle = createGlobalStyle`
 
     body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
         background: ${({ theme }) => theme.bg };
-        color: ${({ theme }) => theme.primary };
+        color: ${({ theme }) => theme.text };
 
-        transition: all 0.25s linear;
+        height: 100%;
+        width: 100%;
+
         // scrollbar-width: thin;
         // scrollbar-color: transparent;
     }
 
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+
+    button.primary {
+        background-color: ${({ theme }) => theme.primary };
+    }
+
+    button.secondary {
+        background-color: ${({ theme }) => theme.secondary };
+    }
+
+    button.tertiary {
+        background-color: ${({ theme }) => theme.tertiary };
+    }
+    
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+        color: ${({ theme }) => theme.secondary};
+    }
+
+    a.active {
+        color: ${({ theme }) => theme.primary};
+    }
+    
+    a.active, a:hover {
+        color: ${({ theme }) => theme.primary };
+    }
+
+    
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
@@ -91,6 +133,36 @@ const StyledGlobalStyle = createGlobalStyle`
         
     }
 
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        line-height: 1;
+        color: ${({ theme }) => theme.text };
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    h5, h6 {
+        font-size: 1.2rem;
+    }
+
+    #appname {
+            color: ${({ theme }) => theme.primary};
+    }
+    
     // /* Pour Chrome, Safari, Edge */
     // ::-webkit-scrollbar {
     //     width: .3rem;
@@ -113,6 +185,6 @@ const StyledGlobalStyle = createGlobalStyle`
 
 
 export default function GlobalStyle() {
-    const { theme } = useContext(AppContent);
+    const { theme } = useContext(AppContext);
     return <StyledGlobalStyle theme={Colors[theme]} />
 }

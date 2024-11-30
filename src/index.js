@@ -6,10 +6,8 @@ import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
 import AppTheme from './context/Theme';
 import GlobalStyle from './style';
 
-
-import AdminHome from './component/admin/Home';
-
-
+import AdminSign from './component/Admin/Sign';
+import AdminHome from './component/Admin/Home'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +16,9 @@ root.render(
       <AppTheme>
         <GlobalStyle />
         <Routes>
-          <Route path="/admin" element={<AdminHome />} ></Route>
+          <Route path='/admin/login' element={<AdminSign />} />
+          <Route path='/admin' element={<AdminHome />} >
+          </Route>
         </Routes>
       </AppTheme>
     </Router>

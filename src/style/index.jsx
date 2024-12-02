@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { useContext } from "react"
 import { AppContext } from "../context/Theme"
-import { Colors } from '../common/Colors';
+import { UIColors } from './UIColors';
 
 
 
@@ -72,8 +72,8 @@ const StyledGlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        background: ${({ theme }) => theme.bg };
-        color: ${({ theme }) => theme.text };
+        background: ${({ theme }) => theme.bg};
+        color: ${({ theme }) => theme.text};
 
         height: 100%;
         width: 100%;
@@ -97,15 +97,15 @@ const StyledGlobalStyle = createGlobalStyle`
     }
 
     button.primary {
-        background-color: ${({ theme }) => theme.primary };
+        background-color: ${({ theme }) => theme.primary};
     }
 
     button.secondary {
-        background-color: ${({ theme }) => theme.secondary };
+        background-color: ${({ theme }) => theme.secondary};
     }
 
     button.tertiary {
-        background-color: ${({ theme }) => theme.tertiary };
+        background-color: ${({ theme }) => theme.tertiary};
     }
     
     a {
@@ -136,7 +136,7 @@ const StyledGlobalStyle = createGlobalStyle`
     h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
         line-height: 1;
-        color: ${({ theme }) => theme.text };
+        color: ${({ theme }) => theme.text};
     }
 
     h1 {
@@ -163,20 +163,20 @@ const StyledGlobalStyle = createGlobalStyle`
             color: ${({ theme }) => theme.primary};
     }
     
-    // /* Pour Chrome, Safari, Edge */
-    // ::-webkit-scrollbar {
-    //     width: .3rem;
-    // }
+    /* Pour Chrome, Safari, Edge */
+    ::-webkit-scrollbar {
+        width: .3rem;
+    }
 
-    // ::-webkit-scrollbar-track {
-    //     background: transparent;
-    // }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
 
-    // ::-webkit-scrollbar-thumb {
-    //     background-color: ${({ theme }) => theme.bg }; 
-    //     border-radius: 10px; 
-    //     border: none; 
-    // }
+    ::-webkit-scrollbar-thumb {
+        background-color: transparent; 
+        border-radius: 10px; 
+        border: none; 
+    }
 
     @media screen and (max-width: 600px) {
 
@@ -186,5 +186,5 @@ const StyledGlobalStyle = createGlobalStyle`
 
 export default function GlobalStyle() {
     const { theme } = useContext(AppContext);
-    return <StyledGlobalStyle theme={Colors[theme]} />
+    return <StyledGlobalStyle theme={UIColors[theme]} />
 }

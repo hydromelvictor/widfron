@@ -11,7 +11,20 @@ export default function AppTheme ({ children }) {
         return savedTheme ? savedTheme : "light";
     });
 
-    const [user, setUser] = useState(null);
+    const anonymousUser = {
+        username: 'unknown',
+        phone: 'unknown',
+        firstname: 'Unknown',
+        lastname: 'Unknown',
+        country: 'Unknown',
+        isAuthenticated: true,
+        online: false,
+        state: 'all',
+        staff: false,
+        group: 'anonymous',
+    }
+
+    const [user, setUser] = useState(anonymousUser);
 
     const toggleTheme = () => {
         setTheme((prevTheme) => {

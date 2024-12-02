@@ -5,8 +5,11 @@ export const Container = styled.div`
     flex: 1;
     display: flex;
     width: 100%;
+    height: 100%;
 
     #navigation {
+        position: sticky;
+        top: 0;
         width: 100%;
         height: 2.5rem;
         display: flex;
@@ -14,8 +17,9 @@ export const Container = styled.div`
         justify-content: space-between;
         align-items: center;
         box-shadow: 0 0 1rem 0 ${({ theme }) => theme.tertiary};
+        background: ${({ theme }) => theme.bg};
 
-        span {
+        & > span {
             display: flex;
             align-items: center;
 
@@ -28,7 +32,7 @@ export const Container = styled.div`
             &:last-child {
                 gap: 1rem;
                 padding: 0 .5rem;
-                small {
+                & > small {
                     font-size: 1.4rem;
                     color: ${({ theme }) => theme.tertiary};
                     position: relative;
@@ -55,6 +59,12 @@ export const Container = styled.div`
                     }
                 }
 
+                #notify, #profileBoard {
+                    position: absolute;
+                    top: 3rem;
+                    right: .5rem;
+                }
+
                 #profileImg {
                     height: 2rem;
                     width: 2rem;
@@ -73,6 +83,7 @@ export const Container = styled.div`
                     display: flex;
                     gap: .2rem;
                     align-items: center;
+                    padding: .5rem;
                 }
             }
         }
@@ -84,10 +95,11 @@ export const Container = styled.div`
         flex-direction: column;
         background: ${({ theme }) => theme.text};
         width: 10rem;
+        height: 100%;
         gap: 1rem;
         font-size: .8rem;
 
-        & > span {
+        & > a {
             display: flex;
             align-items: center;
             color: ${({ theme }) => theme.bg};
@@ -98,8 +110,10 @@ export const Container = styled.div`
 
         & > nav {
             width: 100%;
+            flex: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
 
             & > * {
                 padding: .5rem;
@@ -124,30 +138,75 @@ export const Container = styled.div`
                 color: ${({ theme }) => theme.bg};
                 font-weight: 600;
             }
-        }
-    }
-
-    nav {
-        position: relative;
-        
-
-        #logout {
-            position: absolute;
-            bottom: 0;
-            align-items: center;
-            display: flex;
-            width:100%;
-            gap: 1rem;
-            padding: .5rem;
+            #logout {
+                position: absolute;
+                bottom: 0;
+                align-items: center;
+                display: flex;
+                gap: 1rem;
+                padding: .5rem;
+            }
         }
     }
     & > div {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        flex: 1;
+        overflow-y: auto;
 
         .corp {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+
+            .recap {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 1rem;
+                width: 10rem;
+                flex-wrap: wrap;
+
+                & > span {
+                    height: 8rem;
+                    width: 100%;
+                    box-shadow: 0 0 1rem 0 ${({ theme }) => theme.tertiary};
+                    border-radius: .5rem;
+                    padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: .5em;
+
+                    small {
+                        font-size: .8rem;
+                        color: ${({ theme }) => theme.secondary};
+                    }
+                    
+                    & > span {
+                        font-weight: 600;
+                        display: flex;
+                        align-items: end;
+                        gap: .5rem;
+                        padding: .4rem 0;
+
+                        sub {
+                            font-size: .8rem;
+                            font-weight: 400;
+                            color: ${({ theme }) => theme.secondary};
+                        }
+                    }
+                }
+
+                .graph {
+                    border-top: 1px solid ${({ theme }) => theme.tertiary};
+                    padding: .3rem 0 0 0;
+                    display: flex;
+                    width: 100%;
+                    gap: .2rem;
+                }
+            }
         }
     }
 `;

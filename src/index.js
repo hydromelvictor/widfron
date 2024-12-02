@@ -9,6 +9,8 @@ import GlobalStyle from './style';
 import AdminSign from './component/Admin/Sign';
 import AdminHome from './component/Admin/Home'
 
+import Home from './component/Home';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -19,6 +21,8 @@ root.render(
           <Route path='/admin/login' element={<AdminSign />} />
           <Route path='/admin' element={<AdminHome />} >
           </Route>
+
+          <Route path='/' element={<Home />} />
         </Routes>
       </AppTheme>
     </Router>
